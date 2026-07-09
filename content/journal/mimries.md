@@ -6,7 +6,7 @@ excerpt: "An edge-native platform for instant, branded guest galleries at live e
 tags: ["Web", "Cloudflare", "Edge", "Next.js"]
 liveUrl: "https://mimries.com"
 repoUrl: ""
-pdf: ""
+pdf: "mimries.pdf"
 ---
 
 **Mimries** gives event hosts a shared, curated photo experience without forcing
