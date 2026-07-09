@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Project } from "@/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -42,18 +43,10 @@ export default function ProjectCard({ project }: { project: Project }) {
     </article>
   );
 
-  if (project.liveUrl) {
-    return (
-      <a
-        href={project.liveUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block"
-      >
-        {card}
-      </a>
-    );
-  }
-
-  return card;
+  // Each card opens the project's case study in the journal.
+  return (
+    <Link href={`/journal/${project.slug}`} className="block">
+      {card}
+    </Link>
+  );
 }

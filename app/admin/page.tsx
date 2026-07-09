@@ -80,7 +80,7 @@ export default function AdminPage() {
         "",
       ].join("\n");
 
-      const pathInRepo = `content/blog/${slug}.md`;
+      const pathInRepo = `content/journal/${slug}.md`;
       const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${pathInRepo}`;
       const headers: Record<string, string> = {
         Authorization: `Bearer ${token}`,
@@ -113,7 +113,7 @@ export default function AdminPage() {
 
       setStatus({
         type: "ok",
-        msg: `Published "${title}". The deploy is running — it'll be live at /blog/${slug} in about a minute.`,
+        msg: `Published "${title}". The deploy is running — it'll be live at /journal/${slug} in about a minute.`,
       });
       setTitle("");
       setExcerpt("");
@@ -186,7 +186,7 @@ export default function AdminPage() {
             />
             {title && (
               <p className="mt-1.5 text-xs text-muted">
-                URL: /blog/{slugify(title)}
+                URL: /journal/{slugify(title)}
               </p>
             )}
           </div>

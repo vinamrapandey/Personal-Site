@@ -1,5 +1,6 @@
 ---
 title: "Four products, one person: how I actually ship"
+kind: post
 date: "2026-06-18"
 excerpt: "A short note on taking AI products from blueprint to shipped — brand, frontend, backend, and deployment — without a team."
 tags: ["building", "ai", "solo"]
