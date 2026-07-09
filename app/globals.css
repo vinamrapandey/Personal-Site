@@ -106,3 +106,35 @@ body {
   background: transparent;
   padding: 0;
 }
+.prose-blog img {
+  width: 100%;
+  height: auto;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(15, 15, 15, 0.08);
+}
+.prose-blog hr {
+  margin-top: 2.5rem;
+  border: 0;
+  border-top: 1px solid rgba(15, 15, 15, 0.1);
+}
+.prose-blog table {
+  width: 100%;
+  margin-top: 1.75rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose-blog th,
+.prose-blog td {
+  border: 1px solid rgba(15, 15, 15, 0.12);
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+}
+.prose-blog th {
+  background: rgba(15, 15, 15, 0.04);
+  font-weight: 600;
+  color: #0f0f0f;
+}
