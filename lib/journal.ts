@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
+import gfm from "remark-gfm";
 import html from "remark-html";
 
 const JOURNAL_DIR = path.join(process.cwd(), "content", "journal");
@@ -68,7 +69,12 @@ export async function getEntry(slug: string): Promise<Entry | null> {
   if (!fs.existsSync(file)) return null;
   const raw = fs.readFileSync(file, "utf8");
   const { data, content } = matter(raw);
-  const processed = await remark().use(html).process(content);
+  // gfm enables tables/strikethrough; allowDangerousHtml lets embedded <img>
+  // and raw HTML in entries pass through.
+  const processed = await remark()
+    .use(gfm)
+    .use(html, { sanitize: false })
+    .process(content);
   return {
     ...toMeta(slug, data),
     contentHtml: processed.toString(),
