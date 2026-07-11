@@ -2,7 +2,7 @@ export interface Project {
   slug: string;
   name: string;
   tagline: string;
-  category: "AI" | "Web" | "Mobile";
+  category: "AI" | "Web" | "Mobile" | "Desktop";
   problem: string;
   approach: string;
   stack: string[];
@@ -98,6 +98,23 @@ export const projects: Project[] = [
     color: "#7C4DFF",
     status: "In development",
     shipped: "V1 — In development",
+  },
+  {
+    slug: "magisor",
+    name: "Magisor",
+    tagline:
+      "An invisible AI companion for Windows — shake your mouse and an AI overlay appears over whatever's on screen",
+    category: "Desktop",
+    problem:
+      "Every AI tool makes you leave what you're doing — open a tab, paste your context, wait, come back.",
+    approach:
+      "A mouse shake freezes the screen into an interactive overlay; on-device OCR via Windows.Media.Ocr, bring-your-own-key for Gemini/Claude/Groq, and a native C++/WinRT mouse hook under a Flutter UI. Local-first, no hosted backend, no telemetry.",
+    stack: ["Flutter", "Dart", "C++/WinRT", "Windows.Media.Ocr", "Gemini/Claude/Groq"],
+    metric: "Local-first · bring-your-own-key AI overlay",
+    color: "#DB2777",
+    repoUrl: "https://github.com/vinamrapandey/Magisor",
+    status: "Live",
+    shipped: "v1.6.0 — 2026",
   },
   {
     slug: "preschool-hub",

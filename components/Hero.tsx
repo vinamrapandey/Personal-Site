@@ -14,7 +14,7 @@ export default function Hero() {
         </span>
 
         <h1 className="mt-7 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
-          <span className="text-muted">Six products.</span>{" "}
+          <span className="text-muted">Seven products.</span>{" "}
           <span className="text-ink">One person.</span>{" "}
           <span className="text-muted">Every</span>{" "}
           <span className="text-ink">layer.</span>
