@@ -151,6 +151,20 @@ body {
   max-width: calc(50% - 0.5rem);
   max-height: 34rem;
 }
+/* Image captions (italic-only paragraphs following a screenshot). */
+.prose-blog .prose-caption {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #8a8a85;
+}
+.prose-blog .prose-caption em {
+  font-style: italic;
+}
+/* Click-to-zoom affordance on screenshots. */
+.prose-zoom img {
+  cursor: zoom-in;
+}
 .prose-blog hr {
   margin-top: 2.5rem;
   border: 0;

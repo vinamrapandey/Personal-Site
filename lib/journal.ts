@@ -28,6 +28,7 @@ export interface EntryMeta {
 
 export interface Entry extends EntryMeta {
   contentHtml: string;
+  readingMinutes: number;
 }
 
 function listFiles(): string[] {
@@ -70,6 +71,15 @@ export function getAllSlugs(): string[] {
     .filter((slug) => !readMeta(`${slug}.md`).hidden);
 }
 
+// Split "image + caption in one paragraph" into separate blocks so the
+// caption can be styled (some source files omit the blank line between them).
+function splitImageCaptions(htmlStr: string): string {
+  return htmlStr.replace(
+    /<p>(<img[^>]*>)\s*<em>(.*?)<\/em><\/p>/g,
+    '<p>$1</p><p class="prose-caption"><em>$2</em></p>',
+  );
+}
+
 // Group runs of 2+ back-to-back image paragraphs into a side-by-side row,
 // so consecutive screenshots sit next to each other instead of stacking.
 function groupImageRows(htmlStr: string): string {
@@ -80,6 +90,19 @@ function groupImageRows(htmlStr: string): string {
       return `<div class="img-row">${imgs.join("")}</div>`;
     },
   );
+}
+
+// Tag italic-only paragraphs (image captions / leads) so they can be styled.
+function tagCaptions(htmlStr: string): string {
+  return htmlStr.replace(
+    /<p><em>(.*?)<\/em><\/p>/g,
+    '<p class="prose-caption"><em>$1</em></p>',
+  );
+}
+
+function readingMinutes(markdown: string): number {
+  const words = markdown.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
 }
 
 export async function getEntry(slug: string): Promise<Entry | null> {
@@ -95,6 +118,9 @@ export async function getEntry(slug: string): Promise<Entry | null> {
     .process(content);
   return {
     ...toMeta(slug, data),
-    contentHtml: groupImageRows(processed.toString()),
+    contentHtml: tagCaptions(
+      groupImageRows(splitImageCaptions(processed.toString())),
+    ),
+    readingMinutes: readingMinutes(content),
   };
 }
