@@ -1,8 +1,9 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import JournalGrid, { type JournalCard } from "@/components/JournalGrid";
 import { getAllEntryMeta } from "@/lib/journal";
+import { getProject } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Journal — Vinamra Pandey",
@@ -11,7 +12,19 @@ export const metadata: Metadata = {
 };
 
 export default function JournalIndex() {
-  const entries = getAllEntryMeta();
+  const cards: JournalCard[] = getAllEntryMeta().map((entry) => {
+    const project = getProject(entry.slug);
+    return {
+      slug: entry.slug,
+      title: entry.title,
+      excerpt: entry.excerpt,
+      kind: entry.kind,
+      date: entry.date,
+      category: project?.category,
+      image: project?.image,
+      color: project?.color ?? "#5B6CFF",
+    };
+  });
 
   return (
     <>
@@ -27,31 +40,11 @@ export default function JournalIndex() {
             products end to end — brand, frontend, backend, and deployment.
           </p>
 
-          <div className="mt-12 border-t border-line">
-            {entries.length === 0 && (
-              <p className="py-10 text-muted">Nothing here yet — check back soon.</p>
-            )}
-            {entries.map((entry) => (
-              <Link
-                key={entry.slug}
-                href={`/journal/${entry.slug}`}
-                className="group flex flex-col gap-2 border-b border-line py-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
-              >
-                <div>
-                  <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
-                    {entry.kind === "project" ? "Case study" : "Note"}
-                  </span>
-                  <h2 className="mt-2 font-display text-2xl font-semibold transition-colors group-hover:text-accent">
-                    {entry.title}
-                  </h2>
-                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
-                    {entry.excerpt}
-                  </p>
-                </div>
-                <span className="shrink-0 text-sm text-muted">{entry.date}</span>
-              </Link>
-            ))}
-          </div>
+          {cards.length === 0 ? (
+            <p className="mt-12 text-muted">Nothing here yet — check back soon.</p>
+          ) : (
+            <JournalGrid entries={cards} />
+          )}
         </div>
       </main>
       <Footer />

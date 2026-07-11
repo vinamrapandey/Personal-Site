@@ -22,6 +22,8 @@ export interface EntryMeta {
   repoUrl?: string;
   // Filename of a case-study PDF placed in public/case-studies/, e.g. "swovid.pdf".
   pdf?: string;
+  // When true, the entry is dropped from the list and not built (its URL 404s).
+  hidden?: boolean;
 }
 
 export interface Entry extends EntryMeta {
@@ -44,6 +46,7 @@ function toMeta(slug: string, data: Record<string, unknown>): EntryMeta {
     liveUrl: (data.liveUrl as string) || undefined,
     repoUrl: (data.repoUrl as string) || undefined,
     pdf: (data.pdf as string) || undefined,
+    hidden: data.hidden === true,
   };
 }
 
@@ -57,11 +60,14 @@ function readMeta(file: string): EntryMeta {
 export function getAllEntryMeta(): EntryMeta[] {
   return listFiles()
     .map(readMeta)
+    .filter((m) => !m.hidden)
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getAllSlugs(): string[] {
-  return listFiles().map((f) => f.replace(/\.md$/, ""));
+  return listFiles()
+    .map((f) => f.replace(/\.md$/, ""))
+    .filter((slug) => !readMeta(`${slug}.md`).hidden);
 }
 
 // Group runs of 2+ back-to-back image paragraphs into a side-by-side row,
