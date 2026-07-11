@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import StatsBar from "@/components/StatsBar";
 import LogoMarquee from "@/components/LogoMarquee";
 import WorkGrid from "@/components/WorkGrid";
 import About from "@/components/About";
@@ -7,6 +8,7 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
 
 const CONTACT_EMAIL = "vinamrapandey22@gmail.com";
 
@@ -16,11 +18,22 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <Reveal>
+          <StatsBar />
+        </Reveal>
         <LogoMarquee />
-        <WorkGrid />
-        <About />
-        <Services />
-        <Process />
+        <Reveal>
+          <WorkGrid />
+        </Reveal>
+        <Reveal>
+          <About />
+        </Reveal>
+        <Reveal>
+          <Services />
+        </Reveal>
+        <Reveal>
+          <Process />
+        </Reveal>
 
         {/* Dark contact section */}
         <section id="contact" className="px-4 py-12 sm:px-6">

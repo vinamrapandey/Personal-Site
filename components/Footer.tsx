@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-// TODO: confirm these before launch — placeholders pending real profile URLs.
+// TODO: confirm the LinkedIn URL — best guess from the username pattern.
 const SOCIALS = {
   email: "mailto:vinamrapandey22@gmail.com",
-  linkedin: "#",
-  github: "#",
+  linkedin: "https://www.linkedin.com/in/vinamrapandey",
+  github: "https://github.com/vinamrapandey",
 };
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
