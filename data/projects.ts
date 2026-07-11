@@ -138,3 +138,7 @@ export const projects: Project[] = [
     shipped: "Phase 1 — In development",
   },
 ];
+
+export function getProject(slug: string): Project | undefined {
+  return projects.find((p) => p.slug === slug);
+}
