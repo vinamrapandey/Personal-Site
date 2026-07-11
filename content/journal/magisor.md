@@ -9,7 +9,7 @@ repoUrl: "https://github.com/vinamrapandey/Magisor"
 pdf: "magisor.pdf"
 ---
 
-![The Magisor pie menu open over a frozen desktop](/journal/magisor/00_hero_pie_menu.png)
+![The Magisor pie menu open over a frozen desktop](/journal/magisor/00_hero_pie_menu.webp)
 *Shake your mouse, the screen freezes, and a radial menu appears wherever your cursor was.*
 
 Every AI tool asks you to leave what you're doing to use it. Open a tab. Paste your context. Wait. Come back. That friction isn't an accident — it's baked into the architecture of a chat window.
@@ -28,7 +28,7 @@ Magisor is an invisible AI companion that lives in your Windows system tray. **S
 - **Summarize / Explain / Translate** — one-tap actions on the whole frozen screen.
 - Keep asking follow-up questions about the same frozen context without re-explaining yourself.
 
-![The Ask bar floating over a code editor](/journal/magisor/06_ask_flow.png)
+![The Ask bar floating over a code editor](/journal/magisor/06_ask_flow.webp)
 *"What's on your screen?" — the Ask bar, with quick-start suggestions for common questions.*
 
 Every result gets stored locally, and anything worth keeping can be starred. You bring your own API key for Gemini, Claude, or Groq: no subscription, no hosted backend, no telemetry.
@@ -45,10 +45,10 @@ Magisor is **not** a Copilot competitor — Copilot lives *inside* Microsoft app
 | AI backend | Bring your own key: Gemini, Claude, or Groq | A single hosted model behind a subscription |
 | Data | Local SQLite, keys in the OS credential store, no telemetry | Often synced to a vendor's servers by default |
 
-![Text-select mode highlighting words on screen](/journal/magisor/02_text_select.png)
+![Text-select mode highlighting words on screen](/journal/magisor/02_text_select.webp)
 *Drag across any words on screen and a Copy / Translate / Search / Ask toolbar appears.*
 
-![Circle-to-Search drawing a region around a photo](/journal/magisor/03_circle_to_search.png)
+![Circle-to-Search drawing a region around a photo](/journal/magisor/03_circle_to_search.webp)
 *Circle-to-Search: draw a region around anything, and the AI analyzes just that selection.*
 
 ## The core decision: freeze the screen, don't read the live desktop
@@ -70,20 +70,20 @@ The first working version of Magisor was Python and PyQt5. It proved the shake g
 
 So the call was to rewrite in Flutter and keep the native C++ mouse hook underneath. Flutter gives a first-class rendering pipeline, and the method-channel boundary between Dart and C++ is exactly the seam this project needed: portable code in Dart, platform-specific code only where the OS actually demands it.
 
-![The Settings screen with provider picker, model selector, and shake sensitivity slider](/journal/magisor/01_dashboard_settings.png)
+![The Settings screen with provider picker, model selector, and shake sensitivity slider](/journal/magisor/01_dashboard_settings.webp)
 *Pick your AI provider (each with a live accent-color dot), choose the exact model, manage API keys, and tune shake sensitivity — all from one screen.*
 
 Partway through that rewrite, live-testing surfaced something wrong: the overlay was rendering *transparent over the live desktop*, so every interaction fought the fact that content underneath kept moving. Rather than patch around it, I paused feature work and wrote a full phased spec for the freeze-the-screenshot model described above, then shipped it phase by phase — build, verify, commit, next phase. That discipline is the single biggest reason a fast-moving, one-person codebase doesn't read like a pile of half-finished retries.
 
 Magisor is still under active, daily development — this isn't a finished, static build, it's a working snapshot of something I keep expanding.
 
-![The API key management screen for Gemini, Claude, and Groq](/journal/magisor/05_api_keys.png)
+![The API key management screen for Gemini, Claude, and Groq](/journal/magisor/05_api_keys.webp)
 *Paste a key for any provider you want to use. It's saved and verified on the spot, and stays local.*
 
-![The History tab showing past interactions](/journal/magisor/04_history.png)
+![The History tab showing past interactions](/journal/magisor/04_history.webp)
 *Every Ask, Summarize, and Select-Text result is saved automatically to History.*
 
-![The Saved tab showing starred entries](/journal/magisor/07_saved.png)
+![The Saved tab showing starred entries](/journal/magisor/07_saved.webp)
 *Starring an entry from History keeps it in Saved, independent of history clears.*
 
 ## Building it with Claude Code
