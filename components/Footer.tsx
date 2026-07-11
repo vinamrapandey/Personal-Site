@@ -1,9 +1,8 @@
 import Link from "next/link";
 
-// TODO: confirm the LinkedIn URL — best guess from the username pattern.
 const SOCIALS = {
   email: "mailto:vinamrapandey22@gmail.com",
-  linkedin: "https://www.linkedin.com/in/vinamrapandey",
+  linkedin: "https://www.linkedin.com/in/vinamra-pandey/",
   github: "https://github.com/vinamrapandey",
 };
 
