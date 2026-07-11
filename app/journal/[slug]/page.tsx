@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CaseStudyViewer from "@/components/CaseStudyViewer";
+import ArticleBody from "@/components/ArticleBody";
 import { getAllEntryMeta, getAllSlugs, getEntry } from "@/lib/journal";
 import { getProject } from "@/data/projects";
 
@@ -18,9 +19,22 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const entry = await getEntry(params.slug);
   if (!entry) return {};
+  const image = getProject(entry.slug)?.image;
   return {
     title: `${entry.title} — Vinamra Pandey`,
     description: entry.excerpt,
+    openGraph: {
+      title: `${entry.title} — Vinamra Pandey`,
+      description: entry.excerpt,
+      type: "article",
+      images: image ? [image] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${entry.title} — Vinamra Pandey`,
+      description: entry.excerpt,
+      images: image ? [image] : undefined,
+    },
   };
 }
 
@@ -75,6 +89,9 @@ export default async function EntryPage({
           <h1 className="mt-2 font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
             {entry.title}
           </h1>
+          <p className="mt-3 text-sm text-muted">
+            {entry.date} · {entry.readingMinutes} min read
+          </p>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
             {entry.excerpt}
           </p>
@@ -165,10 +182,7 @@ export default async function EntryPage({
             </div>
           )}
 
-          <div
-            className="prose-blog mt-12"
-            dangerouslySetInnerHTML={{ __html: bodyHtml }}
-          />
+          <ArticleBody html={bodyHtml} />
 
           {/* Closing CTA */}
           <div className="mt-16 flex flex-col items-start gap-4 rounded-3xl bg-dark p-8 text-canvas sm:flex-row sm:items-center sm:justify-between sm:p-10">
