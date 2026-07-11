@@ -64,6 +64,18 @@ export function getAllSlugs(): string[] {
   return listFiles().map((f) => f.replace(/\.md$/, ""));
 }
 
+// Group runs of 2+ back-to-back image paragraphs into a side-by-side row,
+// so consecutive screenshots sit next to each other instead of stacking.
+function groupImageRows(htmlStr: string): string {
+  return htmlStr.replace(
+    /(?:<p>\s*<img[^>]*>\s*<\/p>\s*){2,}/g,
+    (run) => {
+      const imgs = run.match(/<img[^>]*>/g) ?? [];
+      return `<div class="img-row">${imgs.join("")}</div>`;
+    },
+  );
+}
+
 export async function getEntry(slug: string): Promise<Entry | null> {
   const file = path.join(JOURNAL_DIR, `${slug}.md`);
   if (!fs.existsSync(file)) return null;
@@ -77,6 +89,6 @@ export async function getEntry(slug: string): Promise<Entry | null> {
     .process(content);
   return {
     ...toMeta(slug, data),
-    contentHtml: processed.toString(),
+    contentHtml: groupImageRows(processed.toString()),
   };
 }
