@@ -58,7 +58,7 @@ export default function JournalGrid({ entries }: { entries: JournalCard[] }) {
             className="group block"
           >
             <div
-              className="relative flex aspect-[16/10] flex-col justify-between overflow-hidden rounded-3xl p-5 text-white"
+              className="relative flex aspect-[16/10] flex-col justify-between overflow-hidden rounded-3xl p-5 text-white transition-transform duration-300 group-hover:-translate-y-1"
               style={{
                 backgroundImage: `linear-gradient(160deg, ${entry.color} 0%, #111 125%)`,
               }}

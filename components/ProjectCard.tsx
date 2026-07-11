@@ -5,7 +5,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const card = (
-    <article className="group">
+    <article className="group transition-transform duration-300 hover:-translate-y-1">
       {/* Poster: the product's hero screenshot when available, else a gradient. */}
       <div
         className="relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-3xl p-6 text-white"
