@@ -21,7 +21,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 const siteUrl = "https://vinamra.dev";
-const title = "Vinamra Pandey — Six products. One person. Every layer.";
+const title = "Vinamra Pandey — Seven products. One person. Every layer.";
 const description =
   "Product manager, brand strategist, AI consultant, and full-stack builder. I take AI products from blueprint to shipped — alone.";
 
