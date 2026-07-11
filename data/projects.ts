@@ -58,13 +58,14 @@ export const projects: Project[] = [
       "Offline-first ledger app for small shop owners tracking customer credit and supplier bills",
     category: "Mobile",
     problem:
-      "Small, often women-led, shops in low-connectivity areas have no reliable way to track credit without internet access.",
+      "Small shops in India run credit on paper khatas — no backup, no search, and gone for good if the notebook tears or goes missing.",
     approach:
-      "Local-first storage via Room/SQLite, MVVM architecture, CSV export.",
-    stack: ["Kotlin", "Jetpack Compose", "Room/SQLite"],
+      "A single-activity Android app with a programmatic Java UI, a flat local JSON ledger (no database), Material Design 3, and one-tap CSV export. Fully usable offline; optional hand-rolled Google Drive backup. Just two runtime dependencies.",
+    stack: ["Java", "Android", "Material Design 3", "Local JSON"],
     metric: "Distributed via GitHub releases, active development",
     color: "#E8A23B",
-    // TODO: add the real repo URL once confirmed.
+    image: "/journal/transpent/01_home_customers.png",
+    repoUrl: "https://github.com/vinamrapandey/Transpent",
     status: "In development",
     shipped: "v0.x — In development",
   },
