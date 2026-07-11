@@ -9,7 +9,7 @@ repoUrl: "https://github.com/vinamrapandey/Transpent"
 pdf: "transpent.pdf"
 ---
 
-![Transpent logo](/journal/transpent/00_logo_wordmark.png)
+![Transpent logo](/journal/transpent/00_logo_wordmark.webp)
 
 Every small shop I have ever walked into in India runs on the same piece of technology: a notebook. A khata. Kept behind the counter, filled in by hand, holding every customer's running credit and every supplier's pending bill. It has worked for decades. It also has no backup, no search function, and no way to recover if it tears, fades, or simply goes missing.
 
@@ -33,31 +33,31 @@ At its core, Transpent is a local first Android ledger built around one counter:
 
 **On the home dashboard**, a pill switcher toggles between Customers, shown in emerald green, and Suppliers, shown in sapphire blue. Same screen, same set of actions, a different color so the direction of money is never ambiguous at a glance. Add, Pay, and History shortcuts sit directly on the balance card itself, so recording a sale or a payment never requires digging through a menu first.
 
-![Home dashboard, Customers view, showing the emerald green balance card, quick actions, and feature grid](/journal/transpent/01_home_customers.png)
+![Home dashboard, Customers view, showing the emerald green balance card, quick actions, and feature grid](/journal/transpent/01_home_customers.webp)
 
 Switch to Suppliers and the entire card shifts to sapphire blue, same layout, same actions, immediately legible as the other direction of money.
 
-![Home dashboard, Suppliers view, showing the sapphire blue balance card](/journal/transpent/02_home_suppliers.png)
+![Home dashboard, Suppliers view, showing the sapphire blue balance card](/journal/transpent/02_home_suppliers.webp)
 
 **The Ledger tab** lists every customer or supplier as a card. Tap one and you go straight into an item entry dialog, no intermediate screens.
 
-![Ledger screen, Customers tab, showing party cards and the floating add button](/journal/transpent/03_ledger_customers.png)
+![Ledger screen, Customers tab, showing party cards and the floating add button](/journal/transpent/03_ledger_customers.webp)
 
-![Ledger screen, Suppliers tab, same layout in blue](/journal/transpent/04_ledger_suppliers.png)
+![Ledger screen, Suppliers tab, same layout in blue](/journal/transpent/04_ledger_suppliers.webp)
 
 **Search** surfaces frequent contacts first, then matches customers, suppliers, and products as you type. For a shop owner who deals with the same twenty or thirty people every week, that ordering matters more than it sounds like it should.
 
-![Search screen showing frequent contacts and a search bar](/journal/transpent/05_search.png)
+![Search screen showing frequent contacts and a search bar](/journal/transpent/05_search.webp)
 
 **Products** lets a repeat item, a bag of rice, a bottle of oil, get added to any customer's tab in two taps instead of retyping the name and price every single time.
 
-![Products catalog screen with editable price entries](/journal/transpent/06_products.png)
+![Products catalog screen with editable price entries](/journal/transpent/06_products.webp)
 
 **History** shows every dated entry, filterable by Customers or Suppliers, giving an owner a full paper trail without any actual paper.
 
-![History screen, Customers tab, empty state](/journal/transpent/07_history_customers.png)
+![History screen, Customers tab, empty state](/journal/transpent/07_history_customers.webp)
 
-![History screen, Suppliers tab, empty state](/journal/transpent/08_history_suppliers.png)
+![History screen, Suppliers tab, empty state](/journal/transpent/08_history_suppliers.webp)
 
 Underneath all of this, the app tracks entry level detail for every item: name, quantity, price, amount paid, and date, so a partial payment against a single item is recorded precisely rather than averaged across the whole account. Supplier records can carry photo attachments of physical delivery bills, captured straight from the camera or picked from the gallery. And one tap exports the entire ledger to CSV, either as a single combined file or split one file per party, ready to hand to an accountant.
 

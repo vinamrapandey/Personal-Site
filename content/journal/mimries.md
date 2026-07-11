@@ -9,7 +9,7 @@ repoUrl: ""
 pdf: "mimries.pdf"
 ---
 
-![Mimries — the wedding memory platform](/journal/mimries/blog-01-hero.jpg)
+![Mimries — the wedding memory platform](/journal/mimries/blog-01-hero.webp)
 
 *I built a wedding platform for my sister's wedding. 250 of 500 guests used it on day one — then I turned it into a SaaS.*
 
@@ -50,7 +50,7 @@ The earliest working version was a single HTML page that accepted photo uploads 
 
 ## The Pivot That Changed Everything
 
-![Original wedding guest app — phone entry screen](/journal/mimries/blog-08-wedding-app-1.jpg)
+![Original wedding guest app — phone entry screen](/journal/mimries/blog-08-wedding-app-1.webp)
 
 The obvious upload path for Indian guests was WhatsApp. Every Indian family uses it. Every generation of it. Sending a photo to a WhatsApp contact requires exactly zero new skills — you've been doing it since 2014.
 
@@ -76,7 +76,7 @@ The WhatsApp path may still be built. I'm actively working on it with a two-mont
 
 ## The Wedding
 
-![Guest app — language selection](/journal/mimries/blog-09-wedding-app-2.jpg)
+![Guest app — language selection](/journal/mimries/blog-09-wedding-app-2.webp)
 
 The platform went live for the first event — the Engagement — in late April 2026.
 
@@ -92,7 +92,7 @@ It worked.
 
 ## The Guest Experience (Then and Now)
 
-![Guest app — wedding story slides](/journal/mimries/blog-10-wedding-app-3.jpg)
+![Guest app — wedding story slides](/journal/mimries/blog-10-wedding-app-3.webp)
 
 The original bespoke app was designed specifically for Apoorva and Saumya's wedding. Guests would open it and move through:
 
@@ -103,11 +103,11 @@ The original bespoke app was designed specifically for Apoorva and Saumya's wedd
 5. **Event detail** — invitation card, venue information, and photo gallery per event
 6. **Upload** — direct web upload or Telegram bot path
 
-![Formal digital invitation — parents' details redacted](/journal/mimries/blog-11-wedding-invite.jpg)
+![Formal digital invitation — parents' details redacted](/journal/mimries/blog-11-wedding-invite.webp)
 
 The digital invitation in the guest app was a genuine wedding invitation — couple names, parents' names, event details — displayed in the same visual language as a printed card. Guests could download it as a PDF.
 
-![Event detail page — countdown, venue, gallery](/journal/mimries/blog-14-event-detail-1.jpg)
+![Event detail page — countdown, venue, gallery](/journal/mimries/blog-14-event-detail-1.webp)
 
 Each event page showed a live countdown to the event start time, the venue card with a "Take Me There" navigation link, and the photo gallery filtered to that event. Photos appeared in the gallery only after admin approval — the couple controlled what was public.
 
@@ -127,25 +127,25 @@ The platform is now called **Mimries**.
 
 **6-step onboarding wizard.**
 
-![Onboarding — guided setup in 6 steps](/journal/mimries/blog-02-onboarding.jpg)
+![Onboarding — guided setup in 6 steps](/journal/mimries/blog-02-onboarding.webp)
 
 Couples walk through: naming their wedding (including the URL slug), adding events with dates and venues, adding family names, writing their wedding story, reviewing everything, and launching. At the end of step 6, the guest app is live. No developer. No design decisions.
 
 **Admin dashboard.**
 
-![Dashboard — overview of the workspace](/journal/mimries/blog-03-dashboard.jpg)
+![Dashboard — overview of the workspace](/journal/mimries/blog-03-dashboard.webp)
 
 The couple sees all submitted photos sorted by submission time. One click approves a photo (it appears in the public gallery immediately) or rejects it (it moves to trash, deleted after 7 days on free tier). The review queue is the primary moderation surface.
 
 **Photo review queue.**
 
-![Review queue — approve or reject submissions](/journal/mimries/blog-05-review-queue.jpg)
+![Review queue — approve or reject submissions](/journal/mimries/blog-05-review-queue.webp)
 
 Pending submissions show the photo, the submitter's name, the event it was tagged to, and the submission time. Approve in one click. Reject in one click. The queue empties itself as you work through it.
 
 **Live mobile simulator in settings.**
 
-![Settings — live mobile preview of the guest app](/journal/mimries/blog-06-settings.jpg)
+![Settings — live mobile preview of the guest app](/journal/mimries/blog-06-settings.webp)
 
 Changes to the guest app — colours, fonts, the couple's story text — are previewed in real time inside a rendered phone frame in the settings panel. The couple sees exactly what guests will see before publishing.
 
@@ -179,7 +179,7 @@ Same application, different runtimes, for good reason.
 
 ### Telegram bot architecture
 
-![Telegram upload flow — scan, tap, send](/journal/mimries/blog-07-telegram.jpg)
+![Telegram upload flow — scan, tap, send](/journal/mimries/blog-07-telegram.webp)
 
 The Telegram bot runs as a Cloudflare Worker. Telegram sends webhook events to the Worker; the Worker handles them statelessly, writing session data to D1.
 
