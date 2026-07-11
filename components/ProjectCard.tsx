@@ -1,34 +1,54 @@
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export default function ProjectCard({ project }: { project: Project }) {
   const card = (
     <article className="group">
-      {/* Poster placeholder — gradient stands in for a product screenshot. */}
+      {/* Poster: the product's hero screenshot when available, else a gradient. */}
       <div
         className="relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-3xl p-6 text-white"
         style={{
           backgroundImage: `linear-gradient(160deg, ${project.color} 0%, #111 125%)`,
         }}
       >
-        <div className="flex items-center justify-between">
+        {project.image && (
+          <>
+            <img
+              src={`${basePath}${project.image}`}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            {/* Dark overlay keeps the category, version, and title legible. */}
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/85"
+            />
+          </>
+        )}
+
+        <div className="relative flex items-center justify-between">
           <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-medium backdrop-blur-sm">
             {project.category}
           </span>
-          <span className="text-xs text-white/70">{project.shipped}</span>
+          <span className="text-xs text-white/80">{project.shipped}</span>
         </div>
 
-        <div>
+        <div className="relative [text-shadow:0_1px_14px_rgba(0,0,0,0.45)]">
           <h3 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             {project.name}
           </h3>
-          <p className="mt-2 text-sm text-white/80">{project.metric}</p>
+          <p className="mt-2 text-sm text-white/85">{project.metric}</p>
         </div>
 
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl"
-        />
+        {!project.image && (
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl"
+          />
+        )}
       </div>
 
       <div className="mt-4 flex items-baseline justify-between gap-4">

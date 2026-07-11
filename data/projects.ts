@@ -9,6 +9,8 @@ export interface Project {
   metric: string;
   // Brand color used for the project card's poster gradient.
   color: string;
+  // Optional hero screenshot shown as the card background (falls back to the gradient).
+  image?: string;
   liveUrl?: string;
   repoUrl?: string;
   status: "Live" | "In development";
@@ -79,6 +81,7 @@ export const projects: Project[] = [
     stack: ["Cloudflare Workers", "Hono.js", "D1", "R2", "Supabase", "Next.js"],
     metric: "Validated through a live production deployment",
     color: "#FF5436",
+    image: "/journal/mimries/blog-01-hero.jpg",
     liveUrl: "https://mimries.com",
     status: "Live",
     shipped: "v1.0 — 2025",
@@ -112,6 +115,7 @@ export const projects: Project[] = [
     stack: ["Flutter", "Dart", "C++/WinRT", "Windows.Media.Ocr", "Gemini/Claude/Groq"],
     metric: "Local-first · bring-your-own-key AI overlay",
     color: "#DB2777",
+    image: "/journal/magisor/00_hero_pie_menu.png",
     repoUrl: "https://github.com/vinamrapandey/Magisor",
     status: "Live",
     shipped: "v1.6.0 — 2026",
