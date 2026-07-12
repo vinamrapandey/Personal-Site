@@ -21,6 +21,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 const siteUrl = "https://vinamra.dev";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const title = "Vinamra Pandey — Seven products. One person. Every layer.";
 const description =
   "Product manager, brand strategist, AI consultant, and full-stack builder. I take AI products from blueprint to shipped — alone.";
@@ -29,7 +30,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/favicon.png` },
+  icons: {
+    icon: [
+      { url: `${basePath}/favicon-32.png`, sizes: "32x32", type: "image/png" },
+      { url: `${basePath}/favicon.png`, sizes: "48x48", type: "image/png" },
+    ],
+    apple: `${basePath}/apple-touch-icon.png`,
+  },
   openGraph: {
     title,
     description,
