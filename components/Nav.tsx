@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MobileTabBar from "./MobileTabBar";
 
 const links = [
   { label: "Work", href: "/#work" },
@@ -9,7 +10,8 @@ const links = [
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
+    <>
+      <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
       <nav className="mx-auto flex max-w-content items-center justify-between rounded-full border border-line bg-surface/80 py-2.5 pl-5 pr-2.5 backdrop-blur-md">
         <Link
           href="/"
@@ -43,6 +45,9 @@ export default function Nav() {
           </span>
         </Link>
       </nav>
-    </header>
+      </header>
+
+      <MobileTabBar />
+    </>
   );
 }
