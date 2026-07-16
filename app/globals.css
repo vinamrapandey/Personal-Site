@@ -11,6 +11,13 @@ body {
   color: #0f0f0f;
 }
 
+/* Leave room for the fixed mobile bottom tab bar. */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 5.5rem;
+  }
+}
+
 ::selection {
   background-color: #0f0f0f;
   color: #ebeae6;
