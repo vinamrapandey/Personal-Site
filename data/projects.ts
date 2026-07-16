@@ -25,15 +25,18 @@ export const projects: Project[] = [
     tagline:
       "An autonomous agent that researches, writes, and publishes blog content on a schedule",
     category: "AI",
-    problem: "Content teams burn hours per post on research and drafting.",
+    problem:
+      "Publishing consistent, SEO-optimized blog content eats real time — and it's the first thing that gets dropped when you're busy.",
     approach:
-      "Multi-threaded scheduler running independently of Streamlit's rerun cycle; dual LLM support (Gemini + OpenAI); WordPress publishing integration.",
-    stack: ["Python", "Streamlit", "Gemini API", "OpenAI API", "WordPress REST API"],
-    metric: "100+ daily active users",
+      "A decoupled FastAPI backend with an APScheduler agent that researches, writes, and publishes to WordPress on a set interval (1 minute to weekly) via native Application Passwords — no plugin. Self-hosted and multi-tenant (JWT accounts); it distills your draft feedback into style rules it re-injects into every future prompt.",
+    stack: ["FastAPI", "APScheduler", "SQLAlchemy", "JWT Auth", "WordPress REST API", "Vanilla JS"],
+    metric: "Configure once — publishes to WordPress 24/7",
     color: "#5B6CFF",
-    liveUrl: "https://blogassist.streamlit.app",
+    image: "/journal/blog-assist/hero.webp",
+    liveUrl: "https://blogassist.vinamra.dev",
+    repoUrl: "https://github.com/vinamrapandey/Blog-Assist",
     status: "Live",
-    shipped: "v1.0 — 2024",
+    shipped: "v1.0 — 2026",
   },
   {
     slug: "hireultra",
