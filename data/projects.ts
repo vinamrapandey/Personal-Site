@@ -36,7 +36,7 @@ export const projects: Project[] = [
     liveUrl: "https://blogassist.vinamra.dev",
     repoUrl: "https://github.com/vinamrapandey/Blog-Assist",
     status: "Live",
-    shipped: "v1.0 — 2026",
+    shipped: "v2.0 — 2026",
   },
   {
     slug: "hireultra",
